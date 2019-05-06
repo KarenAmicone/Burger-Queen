@@ -1,0 +1,39 @@
+{
+"menu": [{
+    "name": "desayuno",
+    "cafeAmericano": 5,
+    "cafeLeche": 7,
+    "sandwich": [10, "lechuga", "zanahoria", "cebolla", "chile"],
+    "jugoNatural": 7
+    },
+    {
+    "name": "comida",
+    "hamburguesa": [{
+        "sencilla": 10,
+        "doble": 15,
+        "proteina": ["res", "pollo", "vegetariana"],
+        "vegetales": ["lechuga", "cebolla", "jitomate", "chile", "pepinillos", "aguacate"]
+    }],
+    "acompañamientos": [{
+        "papas": 5
+        },
+        {
+        "aros": 5
+        }
+    ],
+    "bebidas": [{
+        "aguaChica": 5
+        },
+        {
+        "aguaGrande": 7
+        },
+        {
+        "refrescoChico": 7
+        },
+        {
+        "refrescoGrande": 10
+        }
+    ]
+    }
+]
+}
