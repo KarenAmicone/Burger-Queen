@@ -1,12 +1,13 @@
 import React from 'react'
-/* import {withRouter} from 'react-router-dom'
-import {Button, FormControl, Input, InputLabel} from '@material-ui/core'
-import Firebase from '../firebase' */
+import './home.css'
+//import clientName from './components'
 
-function Home(){
-    return(
-        <h1>Este es el home</h1>
+export default function Home (){
+    return (
+    <main>
+    <header>
+    <button className= "breakfast-bttn">DESAYUNO</button>
+    </header>
+    </main>
     )
 }
-
-export default Home

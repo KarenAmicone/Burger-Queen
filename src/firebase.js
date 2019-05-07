@@ -20,7 +20,7 @@ const firebaseConfig = {
       };
 
         login(email, password){
-            return this.auth.signInWithEmailAndPassword(email, password)
+            return this.auth.signInWithEmailAndPassword(email, password);
             };
 
         logout(){
@@ -29,7 +29,7 @@ const firebaseConfig = {
 
         isInitialized() {
             return new Promise(resolve => {
-                this.auth.onAuthStateChanged(resolve)
+                this.auth.onAuthStateChanged(resolve);
             })
         }
   };

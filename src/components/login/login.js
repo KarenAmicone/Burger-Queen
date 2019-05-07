@@ -2,13 +2,17 @@ import React, { useState } from 'react'
 import {withRouter} from 'react-router-dom'
 import {Button, FormControl, Input, InputLabel} from '@material-ui/core'
 import Firebase from '../../firebase'
+import logo from '../../images/login.png'
+import './login.css'
 
 function LoginForm(props) {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 
   return (
-    <form onSubmit={e => e.preventDefault() && false}>
+	<main className="container">
+	<img alt="" src={logo}></img>  
+    <form className="formLogin" onSubmit={e => e.preventDefault() && false}>
 					<FormControl margin="normal" required fullWidth>
 						<InputLabel htmlFor="email">Usuario</InputLabel>
 						<Input id="email" name="email" autoComplete="off" autoFocus value={email} onChange={e => setEmail(e.target.value)} />
@@ -20,12 +24,11 @@ function LoginForm(props) {
 					<Button
 						type="submit"
 						fullWidth
-						variant="contained"
-						color="secondary"
 						onClick={login}>
 						Entrar
           			</Button>
                 </form>
+				</main>
   )
 
   async function login() {
