@@ -4,7 +4,7 @@ import LoginForm from '../login/login'
 import Home from '../home/home'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import {CircularProgress } from '@material-ui/core'
-import firebase from '../firebase'
+import firebase from '../../firebase'
 
 
 export default function App() {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import {withRouter} from 'react-router-dom'
 import {Button, FormControl, Input, InputLabel} from '@material-ui/core'
-import Firebase from '../firebase'
+import Firebase from '../../firebase'
 
 function LoginForm(props) {
 	const [email, setEmail] = useState('')
