@@ -1,20 +1,11 @@
-import React from 'react'
-import './home.css'
+import '../../../src/' 
 
-export default function clientName(){
-  return (
-    <form>
-    <label className="label">
-      Nombre del cliente
-      <br></br>
-      <input type="text" className="clientName" />
-    </label>
-    <br></br>
-    <input type="submit" value="Submit" />
-  </form>
-  )
-}
 
-/* export default function breakfast(){
+const menuData='../../../src/menu.json';
+fetch(menuData)
+.then((response) => response.json())
+.then(responseJson =>console.log(responseJson))
+.catch((error)=>{
+  console.info('hubo un problema '+error.message);
+});
 
-} */
