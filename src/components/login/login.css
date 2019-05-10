@@ -1,0 +1,21 @@
+.container{
+    height: 768px;
+    width: 1024px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 20% 40% 30% 10%;
+    justify-items: center;
+    align-items: center;
+}
+
+img{
+    width: 331px;
+    height: 340px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+.formLogin{
+    grid-column: 2/3;
+    grid-row: 3/4;
+}
