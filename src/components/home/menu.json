@@ -1,0 +1,107 @@
+{
+"menu": [
+    {
+    "name": "desayuno",
+    "options":[
+            {
+                "label": "SANDWICH DE JAMÓN Y QUESO",
+                "id": "sandwich",
+                "value": 10
+            },
+            {
+                "label": "CAFÉ AMERICANO",
+                "id": "coffe-a",
+                "value": 5
+            },
+            {
+                "label": "CAFÉ CON LECHE",
+                "id": "coffe-l",
+                "value": 7
+            },
+            {
+                "label": "JUGO NATURAL",
+                "id": "juice",
+                "value": 7
+            }
+        ],
+    "ingredients": [
+            {
+                "label": "LECHUGA",
+                "id": "lettuce",
+                "value": true
+            },
+            {
+                "label": "ZANAHORIA",
+                "id": "carrot",
+                "value": true
+            },
+            {
+                "label": "CEBOLLA",
+                "id": "onion",
+                "value": true
+            },
+            {
+                "label": "CHILE",
+                "id": "chile",
+                "value": true
+            }
+        ]
+    },
+
+    {
+    "name":"comida",
+    "options":[
+        {
+            "id":"single", 
+            "label":"SENCILLA"
+        },
+        {
+            "id": "double", 
+            "label": "DOBLE"
+        },
+        {
+            "id": "meat", 
+            "label": "RES"
+        },  
+        {
+            "id": "chicken", 
+            "label": "POLLO"
+        }, 
+        {
+            "id": "veggie", 
+            "label": "VEGETARIANA"
+        }   
+    ],
+    "ingredients":[
+        {
+            "id": "lettuce-1", 
+            "label": "LECHUGA"
+        },
+        {
+            "id": "tomatoe", 
+            "label": "JITOMATE"
+        },
+        {
+            "id": "onion-1", 
+            "label": "CEBOLLA"
+        },
+        {
+            "id": "chile-1", 
+            "label": "CHILE"
+        },
+        {
+            "id": "pickles", 
+            "label": "PEPINILLOS"
+        },
+        {
+            "id": "aguacate", 
+            "label": "AGUACATE"
+        }
+    ]
+           
+    },
+    {
+        
+    }
+]
+}

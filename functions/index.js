@@ -1,4 +1,4 @@
-/* const functions = require('firebase-functions');
+const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
 
@@ -15,8 +15,6 @@ exports.createProfile = functions.auth.user().onCreate(
   })
 );
 
-
 exports.deleteProfile = functions.auth.user().onDelete(
   user => admin.firestore().doc(`users/${user.uid}`).delete()
 );
- */
