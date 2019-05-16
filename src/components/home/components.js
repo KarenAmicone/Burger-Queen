@@ -32,7 +32,6 @@ return (
         e.preventDefault();
         onSubmit(text.value); 
         submitToFirebase(e);
-        PrintingClientName(e);
       }}>
     <label htmlFor="input-name">
       Nombre del cliente

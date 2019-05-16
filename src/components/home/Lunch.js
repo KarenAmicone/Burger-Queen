@@ -67,8 +67,13 @@ const Extras = () =>{
     <main>
         <section id="wrapper">
             <article id="extras-grid">
-            <MenuOptions id="fries" label="PAPAS A LA FRANCESA"/> 
-            <MenuOptions id="rings" label="ONION RINGS"/>
+            {menuLunch.extras.map(extra=> (
+              <MenuOptions
+                label={extra.label}
+                id={extra.id}
+                value={extra.value}
+              />
+            ))}
             </article>
         </section>
         <article id="payments">
@@ -83,11 +88,15 @@ const Drinks = () =>{
         <section id="wrapper">
             <article id="drinks-grid">
             <h3 id="soda-title">REFRESCO</h3>
-            <MenuOptions id="soda-five" label="500ML"/> 
-            <MenuOptions id="soda-seven" label="750ML"/>
             <h3 id="water-title">AGUA</h3>
-            <MenuOptions id="water-five" label="500ML"/>
-            <MenuOptions id="water-seven" label="750ML"/>
+            {menuLunch.drinks.map(drink=> (
+              <MenuOptions
+                label={drink.label}
+                id={drink.id}
+                value={drink.value}
+              />
+            ))}
+            
             </article>
         </section>
         <article id="payments">

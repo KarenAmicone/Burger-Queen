@@ -53,55 +53,96 @@
     "options":[
         {
             "id":"single", 
-            "label":"SENCILLA"
+            "label":"SENCILLA",
+            "value":10
         },
         {
             "id": "double", 
-            "label": "DOBLE"
+            "label": "DOBLE",
+            "value": 15
         },
         {
             "id": "meat", 
-            "label": "RES"
+            "label": "RES",
+            "value": "false"
         },  
         {
             "id": "chicken", 
-            "label": "POLLO"
+            "label": "POLLO",
+            "value": "false"
         }, 
         {
             "id": "veggie", 
-            "label": "VEGETARIANA"
+            "label": "VEGETARIANA",
+            "value": "false"
         }   
     ],
     "ingredients":[
         {
             "id": "lettuce-1", 
-            "label": "LECHUGA"
+            "label": "LECHUGA",
+            "value": "true"
         },
         {
             "id": "tomatoe", 
-            "label": "JITOMATE"
+            "label": "JITOMATE",
+            "value": "true"
         },
         {
             "id": "onion-1", 
-            "label": "CEBOLLA"
+            "label": "CEBOLLA",
+            "value": "true"
         },
         {
             "id": "chile-1", 
-            "label": "CHILE"
+            "label": "CHILE",
+            "value": "true"
         },
         {
             "id": "pickles", 
-            "label": "PEPINILLOS"
+            "label": "PEPINILLOS",
+            "value": "true"
         },
         {
             "id": "aguacate", 
-            "label": "AGUACATE"
+            "label": "AGUACATE",
+            "value": "true"
         }
+    ],
+    "drinks":[
+        {
+            "label":"500ML",
+            "id":"water-five",
+            "value":"5"
+        },
+        {
+            "label":"750ML",
+            "id":"water-seven",
+            "value":"7"
+        },
+        {
+            "label":"500ML",
+            "id":"soda-five",
+            "value":"7"
+        },
+        {
+            "label":"750ML",
+            "id":"soda-seven",
+            "value":"10"
+        }
+    ],
+    "extras": [
+        {
+            "label":"PAPAS A LA FRANCESA",
+            "id":"fries",
+            "value":"5"
+        },
+        {
+            "label":"ONION RINGS",
+            "id":"rings",
+            "value":"5"
+        }     
     ]
-           
-    },
-    {
-        
     }
 ]
 }
