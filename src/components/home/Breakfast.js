@@ -1,6 +1,6 @@
 import React from 'react';
 import './home.css';
-import {BreakfastOutput, BreakfastBttns} from './Bcomponents';
+import {OrdersOutput, BreakfastBttns} from './Bcomponents';
 
 
 class Breakfast extends React.Component {
@@ -13,13 +13,22 @@ class Breakfast extends React.Component {
     }
     ]
   };
-
+  
   addOrder = (order) => {
     let orders = [...this.state.orders, order];
     this.setState({
       orders: orders
     });
   };
+
+  deleteOrder = (id) => {
+    let orders = this.state.orders.filter(order=>{
+      return order.id !== id
+    });
+    this.setState({
+      orders: orders
+    })
+  }
 
   render(){
   return (
@@ -28,7 +37,7 @@ class Breakfast extends React.Component {
       <main>
         <BreakfastBttns addOrder={this.addOrder}/>
           <article id="payments">
-            <BreakfastOutput orders={this.state.orders}/>
+            <OrdersOutput orders={this.state.orders} deleteOrder={this.deleteOrder}/>
           </article>
         </main>
         </section>

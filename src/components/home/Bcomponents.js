@@ -13,17 +13,20 @@ class BreakfastBttns extends React.Component{
 
   handleClickOptions = (e) => {
       e.preventDefault();
-      this.setState({
-          label: e.target.name,
-          price: `/$${e.target.value}`,
-          id: e.target.id
-      });
+      if(e.target.className === "menu-options"){
+        this.setState({
+            label: e.target.name,
+            price: `/$${e.target.value}`,
+            id: e.target.id
+        });
+      }
     };
     
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addOrder(this.state)
   };
+
 
   render(){
     return (
@@ -46,7 +49,7 @@ class BreakfastBttns extends React.Component{
   } 
 };
 
-const BreakfastOutput = ({orders}) => {
+const OrdersOutput = ({orders, deleteOrder}) => {
   return( 
     <table>
     <tbody>
@@ -54,6 +57,7 @@ const BreakfastOutput = ({orders}) => {
       <tr key={order.id}>
       <td>{order.label}</td>
       <td>{order.price}</td>
+      <td> <button onClick={()=> {deleteOrder(order.id)}}><i className="material-icons">delete_outline</i></button> </td>
       </tr>
       )}
     </tbody>
@@ -61,4 +65,4 @@ const BreakfastOutput = ({orders}) => {
   )
 };
 
-export {BreakfastBttns, BreakfastOutput}
+export {BreakfastBttns, OrdersOutput}

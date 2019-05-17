@@ -60,59 +60,68 @@
         {
             "id":"single", 
             "label":"SENCILLA",
-            "value":10
+            "value":10,
+            "class": "menu-options"
         },
         {
             "id": "double", 
             "label": "DOBLE",
-            "value": 15
+            "value": 15,
+            "class": "menu-options"
         },
         {
             "id": "meat", 
             "label": "RES",
-            "value": "false"
+            "value": "false",
+            "class": "menu-options"
         },  
         {
             "id": "chicken", 
             "label": "POLLO",
-            "value": "false"
+            "value": "false",
+            "class": "menu-options"
         }, 
         {
             "id": "veggie", 
             "label": "VEGETARIANA",
-            "value": "false"
-        }   
-    ],
-    "ingredients":[
+            "value": "false",
+            "class": "menu-options"
+        },
         {
             "id": "lettuce-1", 
             "label": "LECHUGA",
-            "value": "true"
+            "value": "true",
+            "class": "ingredients"
         },
         {
             "id": "tomatoe", 
             "label": "JITOMATE",
-            "value": "true"
+            "value": "true",
+            "class": "ingredients"
         },
         {
             "id": "onion-1", 
             "label": "CEBOLLA",
-            "value": "true"
+            "value": "true",
+            "class": "ingredients"
         },
         {
             "id": "chile-1", 
             "label": "CHILE",
-            "value": "true"
+            "value": "true",
+            "class": "ingredients"
         },
         {
             "id": "pickles", 
             "label": "PEPINILLOS",
-            "value": "true"
+            "value": "true",
+            "class": "ingredients"
         },
         {
             "id": "aguacate", 
             "label": "AGUACATE",
-            "value": "true"
+            "value": "true",
+            "class": "ingredients"
         }
     ],
     "drinks":[
