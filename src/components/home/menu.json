@@ -6,44 +6,50 @@
             {
                 "label": "SANDWICH DE JAMÓN Y QUESO",
                 "id": "sandwich",
-                "value": 10
+                "value": 10,
+                "class": "menu-options"
             },
             {
                 "label": "CAFÉ AMERICANO",
                 "id": "coffe-a",
-                "value": 5
+                "value": 5,
+                "class": "menu-options"
             },
             {
                 "label": "CAFÉ CON LECHE",
                 "id": "coffe-l",
-                "value": 7
+                "value": 7,
+                "class": "menu-options"
             },
             {
                 "label": "JUGO NATURAL",
                 "id": "juice",
-                "value": 7
-            }
-        ],
-    "ingredients": [
+                "value": 7,
+                "class": "menu-options"
+            },
             {
                 "label": "LECHUGA",
                 "id": "lettuce",
-                "value": true
+                "value": true,
+                "class": "ingredients"
             },
             {
                 "label": "ZANAHORIA",
                 "id": "carrot",
-                "value": true
+                "value": true,
+                "class": "ingredients"
             },
             {
                 "label": "CEBOLLA",
                 "id": "onion",
-                "value": true
+                "value": true,
+                "class": "ingredients"
             },
             {
                 "label": "CHILE",
                 "id": "chile",
-                "value": true
+                "value": true,
+                "class": "ingredients"
             }
         ]
     },

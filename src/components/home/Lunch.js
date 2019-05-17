@@ -33,7 +33,6 @@ function Lunch(){
         }
 
         const menuLunch = MenuList.menu[1]
-        console.log(menuLunch)
 
 const Hamburger = () =>{
     return(
