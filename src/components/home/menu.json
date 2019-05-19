@@ -72,19 +72,19 @@
         {
             "id": "meat", 
             "label": "RES",
-            "value": "false",
+            "value": "type",
             "class": "menu-options"
         },  
         {
             "id": "chicken", 
             "label": "POLLO",
-            "value": "false",
+            "value": "type",
             "class": "menu-options"
         }, 
         {
             "id": "veggie", 
             "label": "VEGETARIANA",
-            "value": "false",
+            "value": "type",
             "class": "menu-options"
         },
         {

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import {NameForm, PrintingClientName} from './components';
 import Breakfast from './Breakfast';
 import Lunch from './Lunch';
+import Orders from './Orders';
 
 function Home() {
   return (
@@ -29,7 +30,7 @@ function Home() {
         <Route exact path="/home" component={HomeRendering} />
         <Route exact path="/home/desayuno" component={Breakfast} />
         <Route exact path="/home/comida" component={Lunch} />
-        <Route exact path="/home/historial-de-pedidos"/>
+        <Route exact path="/home/historial-de-pedidos" component={Orders}/>
         
     </Router>
   );
@@ -39,13 +40,16 @@ function Home() {
 function HomeRendering () {
   const [name, setName] = useState([]);
 return (
-<main>
-    <section id="wrapper">
-    <NameForm onSubmit={text => setName([{ text }, ...name])}/>
-    </section>
-    <article id="payments">
-    </article>
-  </main>
+  <section>
+    <article id="lunch-menu"></article>   
+    <main>
+      <section id="wrapper">
+      <NameForm onSubmit={text => setName([{ text }, ...name])}/>
+      </section>
+      <article id="payments">
+      </article>
+    </main>
+  </section>
   )
 }
 

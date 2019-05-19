@@ -88,6 +88,15 @@ h3{
     box-shadow: 0px 8px 8px rgba(0, 0, 0, 0.24), 0px 0px 8px rgba(0, 0, 0, 0.12);
 }
 
+table{
+    margin: 15px;
+}
+td,
+th {
+    border-bottom: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+}
+
 #wrapper{
     width: 645px;
     height: 535px;
@@ -100,6 +109,26 @@ h3{
     grid-template-rows: repeat(6, auto);
     justify-self: center;
 }
+.purple-bttns{
+    width: 186px;
+    height: 69px;
+    background: #AA76D1;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+    border-radius: 6px; 
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+#ordering-bttns-grid{
+    grid-column: 1/4;
+    grid-row: 6/7;
+    margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-items: center;
+    align-items: center;
+}
+
 
 .ingredients{
     background: #73D681;

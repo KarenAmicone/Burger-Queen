@@ -1,6 +1,8 @@
 import React from 'react';
 import './home.css';
 import MenuList from '../home/menu.json';
+import app from 'firebase/app';
+import 'firebase/firebase-firestore';
 
 const menuBreakfast = MenuList.menu[0].options;
 
@@ -9,6 +11,7 @@ class BreakfastBttns extends React.Component{
     label:null,
     price: null,
     id: null, 
+    ingredients: null,
   };
 
   handleClickOptions = (e) => {
@@ -17,16 +20,38 @@ class BreakfastBttns extends React.Component{
         this.setState({
             label: e.target.name,
             price: `/$${e.target.value}`,
-            id: e.target.id
+            id: e.target.id,
         });
+      } else {
+        if(this.state.id === "sandwich"){
+          this.setState({
+              ingredients: `SIN ${e.target.name}`
+          });
+        }  
       }
     };
     
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.addOrder(this.state)
-  };
+    this.setState({
+      ingredients: null,
+    })
+  }
 
+  handleOrder = (e) =>{
+    e.preventDefault();
+    app.firestore().collection('orders').add({
+      orders: this.props.orders.map(order=> {
+        return {
+        name: order.label,
+        price: order.price,
+        id: order.id,
+        ingredients: order.ingredients 
+      }
+      })
+    }).then(console.log(this.props.orders))
+  }
 
   render(){
     return (
@@ -43,7 +68,10 @@ class BreakfastBttns extends React.Component{
         >{menu.label}</button>
       ))} 
       </article>
-        <button onClick={this.handleSubmit}>Pedir</button>
+      <article id="ordering-bttns-grid">
+        <button className= "purple-bttns" onClick={this.handleSubmit}>AÑADIR</button>
+        <button className= "purple-bttns" onClick={this.handleOrder}>TERMINAR PEDIDO</button>
+      </article>
     </section>
         )
   } 
@@ -57,6 +85,7 @@ const OrdersOutput = ({orders, deleteOrder}) => {
       <tr key={order.id}>
       <td>{order.label}</td>
       <td>{order.price}</td>
+      <td>{order.ingredients}</td>
       <td> <button onClick={()=> {deleteOrder(order.id)}}><i className="material-icons">delete_outline</i></button> </td>
       </tr>
       )}
@@ -64,5 +93,9 @@ const OrdersOutput = ({orders, deleteOrder}) => {
   </table>
   )
 };
+
+
+
+  
 
 export {BreakfastBttns, OrdersOutput}

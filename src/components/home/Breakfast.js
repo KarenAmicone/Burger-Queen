@@ -5,13 +5,7 @@ import {OrdersOutput, BreakfastBttns} from './Bcomponents';
 
 class Breakfast extends React.Component {
   state = {
-    orders: [
-      {
-        label: null,
-        price: null,
-        id: null
-    }
-    ]
+    orders: []
   };
   
   addOrder = (order) => {
@@ -27,15 +21,15 @@ class Breakfast extends React.Component {
     });
     this.setState({
       orders: orders
-    })
-  }
+    });
+  };
 
   render(){
   return (
       <section>
       <article id="lunch-menu"></article>   
       <main>
-        <BreakfastBttns addOrder={this.addOrder}/>
+        <BreakfastBttns orders= {this.state.orders} addOrder={this.addOrder}/>
           <article id="payments">
             <OrdersOutput orders={this.state.orders} deleteOrder={this.deleteOrder}/>
           </article>

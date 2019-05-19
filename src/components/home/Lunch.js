@@ -4,6 +4,8 @@ import { MenuOptions } from './components';
 import {OrdersOutput} from './Bcomponents'
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import MenuList from './menu.json';
+import app from 'firebase/app';
+import 'firebase/firebase-firestore';
 
 function Lunch(){
     return (
@@ -23,7 +25,7 @@ function Lunch(){
             </button>
                 </article>
 
-            <Route exact path="/home/comida"/>
+            <Route exact path="/home/comida" component={LunchRendering}/>
             <Route path="/home/comida/hamburguesas" component={Hamburger}/>
             <Route path="/home/comida/guarnicion" component={Extras}/>
             <Route path="/home/comida/bebidas" component={Drinks}/>
@@ -33,17 +35,22 @@ function Lunch(){
           )
         }
 
-  const menuLunch = MenuList.menu[1].options
+  function LunchRendering () {
+  return (
+      <main>
+        <section id="wrapper">
+        </section>
+        <article id="payments">
+        </article>
+      </main>
+    )
+  }
+
+  const menuLunch = MenuList.menu[1].options;
 
     class Hamburger extends React.Component {
       state = {
-        orders: [
-          {
-            label: null,
-            price: null,
-            id: null
-        }
-        ]
+        orders: []
       };
     
       addOrder = (order) => {
@@ -52,11 +59,21 @@ function Lunch(){
           orders: orders
         });
       };
+
+      deleteOrder = (id) => {
+        let orders = this.state.orders.filter(order=>{
+          return order.id !== id
+        });
+        this.setState({
+          orders: orders
+        });
+      };
+
       render(){
       return (
           <section>   
           <main>
-            <LunchBttns addOrder={this.addOrder}/>
+            <LunchBttns addOrder={this.addOrder} orders= {this.state.orders}/>
               <article id="payments">
                 <OrdersOutput orders={this.state.orders}/>
               </article>
@@ -70,22 +87,48 @@ function Lunch(){
       state={
         label:null,
         price: null,
-        id: null, 
+        id: null,
+        ingredients: null 
       };
       
       handleClickOptions = (e) => {
-          e.preventDefault();
+        e.preventDefault();
+        if(e.target.value !== "type"){
           this.setState({
               label: e.target.name,
               price: `/$${e.target.value}`,
-              id: e.target.id
+              id: e.target.id,
           });
+        } else {
+          if(this.state.id === "single" || this.state.id === "double"){
+            this.setState({
+                ingredients: `${e.target.name}`
+            });
+          }  
+        }
         };
         
       handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addOrder(this.state)
+        this.props.addOrder(this.state);
+        this.setState({
+          ingredients: null,
+        })
       };
+
+      handleOrder = (e) =>{
+        e.preventDefault();
+        app.firestore().collection('orders').add({
+          orders: this.props.orders.map(order=> {
+            return {
+            name: order.label,
+            price: order.price,
+            id: order.id,
+            ingredients: order.ingredients 
+          }
+          })
+        }).then(console.log(this.props.orders))
+      }
     
       render(){
         return (
@@ -102,7 +145,10 @@ function Lunch(){
             >{menu.label}</button>
           ))} 
           </article>
-            <button onClick={this.handleSubmit}>Pedir</button>
+          <article id="ordering-bttns-grid">
+            <button className= "purple-bttns" onClick={this.handleSubmit}>AÑADIR</button>
+            <button className= "purple-bttns" onClick={this.handleOrder}>TERMINAR PEDIDO</button>
+          </article>
         </section>
             )
       } 
@@ -115,7 +161,7 @@ const Extras = () =>{
     <main>
         <section id="wrapper">
             <article id="extras-grid">
-            {menuLunch.extras.map(extra=> (
+            {MenuList.menu[1].extras.map(extra=> (
               <MenuOptions
                 label={extra.label}
                 id={extra.id}
@@ -137,7 +183,7 @@ const Drinks = () =>{
             <article id="drinks-grid">
             <h3 id="soda-title">REFRESCO</h3>
             <h3 id="water-title">AGUA</h3>
-            {menuLunch.drinks.map(drink=> (
+            {MenuList.menu[1].drinks.map(drink=> (
               <MenuOptions
                 label={drink.label}
                 id={drink.id}
