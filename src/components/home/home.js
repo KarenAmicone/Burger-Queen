@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './home.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import {NameForm, PrintingClientName} from './components';
 import Breakfast from './Breakfast';
 import Lunch from './Lunch';
 import Orders from './Orders';
@@ -22,8 +21,10 @@ function Home() {
           <button className= "main-bttn">
             <Link className= "link" to="/home/historial-de-pedidos">HISTORIAL DE PEDIDOS</Link>
           </button>
-          <PrintingClientName /* name={name.map(({ text }) => (
-          <p>Cliente: {text}</p>))} *//>
+          <article id="order-info">
+            <p>Cliente: </p>
+            <p>No. Orden: </p>
+          </article>
           <button className="ready">Pedido listo</button>
           </header>
 
@@ -37,20 +38,48 @@ function Home() {
 }
 
 
-function HomeRendering () {
-  const [name, setName] = useState([]);
-return (
-  <section>
-    <article id="lunch-menu"></article>   
-    <main>
-      <section id="wrapper">
-      <NameForm onSubmit={text => setName([{ text }, ...name])}/>
-      </section>
-      <article id="payments">
-      </article>
-    </main>
-  </section>
-  )
+class HomeRendering extends React.Component {
+  state={
+    name: "",
+    order: 0
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      name: e.target.value,
+      order: this.state.order +1
+    })
+  }
+
+  handleSubmit =(e)=>{
+    e.preventDefault();
+    console.log(this.state.name)
+  }
+render(){
+  return (
+    <>
+    <header>
+    
+    </header>
+    <section>
+      <article id="lunch-menu"></article>   
+      <main>
+        <section id="wrapper">
+        <form id ="form-name" onSubmit={this.handleSubmit}>
+            <label htmlFor="input-name">
+              Nombre del cliente
+              </label>
+              <br></br>
+              <input type="text" onChange={this.handleChange} className="input-name"/>
+          </form>
+        </section>
+        <article id="payments">
+        </article>
+      </main>
+    </section>
+    </>
+    )
+}
 }
 
 export default Home;
