@@ -1,11 +1,14 @@
-import '../../../src/' 
+import React from 'react';
+import './home.css';
 
+const MenuOptions = (props) =>
+  <button id= {props.id} className="menu-options" value={props.value} onClick={props.click}>{props.label}</button>
 
-const menuData='../../../src/menu.json';
-fetch(menuData)
-.then((response) => response.json())
-.then(responseJson =>console.log(responseJson))
-.catch((error)=>{
-  console.info('hubo un problema '+error.message);
-});
+const Ingredients = (props) =>
+  <button id= {props.id} className= "ingredients" value={props.value} onClick={props.click}>{props.label}</button>
 
+const LunchOptions = (props) =>
+<button id= {props.id} className= "lunch-options" value={props.value}>{props.label}</button>
+
+//Exporting
+export {Ingredients, MenuOptions, LunchOptions}

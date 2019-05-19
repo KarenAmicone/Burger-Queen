@@ -1,92 +1,85 @@
-import React, {useState} from 'react'
-import './home.css'
-import 'firebase/firebase-firestore'
-import app from 'firebase/app'
-import ReactDOM from 'react-dom'
+import React from 'react';
+import './home.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Breakfast from './Breakfast';
+import Lunch from './Lunch';
+import Orders from './Orders';
 
-function PrintingClientName (props) {
-      return <article id="order-info">
-      <p>Cajero: {props.user}
-      <br></br>
-      Cliente: {props.name}
-      <br></br>
-      No. Orden: {props.count}</p>
-      </article>
+function Home() {
+  return (
+    <Router>
+      <header>
+          <button className= "main-bttn">
+            <Link className= "link" to="/home/desayuno">DESAYUNO</Link>
+          </button>
+          <button className= "main-bttn">
+            <Link className= "link" to="/home/comida">COMIDA</Link>
+          </button>
+          <button className= "main-bttn">
+            <Link className= "link" to="/home">NUEVO PEDIDO</Link>
+          </button>
+          <button className= "main-bttn">
+            <Link className= "link" to="/home/historial-de-pedidos">HISTORIAL DE PEDIDOS</Link>
+          </button>
+          <article id="order-info">
+            <p>Cliente: </p>
+            <p>No. Orden: </p>
+          </article>
+          <button className="ready">Pedido listo</button>
+          </header>
+
+        <Route exact path="/home" component={HomeRendering} />
+        <Route exact path="/home/desayuno" component={Breakfast} />
+        <Route exact path="/home/comida" component={Lunch} />
+        <Route exact path="/home/historial-de-pedidos" component={Orders}/>
+        
+    </Router>
+  );
 }
 
-function MainButtons (props){
- return <button onClick= {props.function} className= "main-bttn" value={props.value}>{props.label}</button>
-}
 
-function MenuOptions (props){
-return <button id= {props.id} className="menu-options" value={props.value}>{props.label}</button>
-}
+class HomeRendering extends React.Component {
+  state={
+    name: "",
+    order: 0
+  }
 
-function Ingredients (props){
-return <button id= {props.id} className= "ingredients" value={props.value}>{props.label}</button>
-}
+  handleChange = (e) => {
+    this.setState({
+      name: e.target.value,
+      order: this.state.order +1
+    })
+  }
 
-function ClickBreakfast (){
-const element = <article id="breakfast-grid">
-<MenuOptions id="sandwich" label="SANDWICH DE JAMON Y QUESO"/> 
-<MenuOptions id="coffe-a" label="CAFÉ AMERICANO"/>
-<MenuOptions id="coffe-l" label="CAFÉ CON LECHE"/>  
-<MenuOptions id="juice" label="JUGO NATURAL"/> 
-<Ingredients id="lettuce" label="LECHUGA"/>
-<Ingredients id="carrot" label="ZANAHORIA"/>
-<Ingredients id="onion" label="CEBOLLA"/>
-<Ingredients id="chile" label="CHILE"/>
-</article>
-ReactDOM.render(element, document.getElementById('wrapper'));
-}
-
-/* function ClickLunch (){
-  const element = <article id="lunch-grid">
-  <MenuOptions id=""/>
-  </article>
-  ReactDOM.render(element, document.getElementById('wrapper'));
-  } */
-
-function HomeRendering () {
-  const [name, setName] = useState("");
-  const submitToFirebase = (event) => {
-          event.preventDefault();
-          app.firestore().collection('orders').add({
-            clientName: {name}
-        })
-        .catch(err => {
-            console.log(err.message);
-        }); 
-      }
-
-return (
-<main>
-    <MainButtons label="DESAYUNO" function={ClickBreakfast}/>
-    <MainButtons label="COMIDA"/>
-    <MainButtons label="NUEVO PEDIDO"/>
-    <MainButtons label="HISTORIAL DE PEDIDOS"/>
-    <PrintingClientName name={name}/>
-    <button className="ready">Pedido listo</button>
-    <section id="wrapper">
-    <form id ="form-name" onSubmit={submitToFirebase}>
-    <label htmlFor="input-name">
-      Nombre del cliente
-      </label>
-      <br></br>
-      <input
-        className="input-name"
-        type="text"
-        value={name}
-        onChange={event => setName(event.target.value)}
-      /> 
-      <br></br>
-    <input type="submit" value="Enviar" />
-  </form>
+  handleSubmit =(e)=>{
+    e.preventDefault();
+    console.log(this.state.name)
+  }
+render(){
+  return (
+    <>
+    <header>
+    
+    </header>
+    <section>
+      <article id="lunch-menu"></article>   
+      <main>
+        <section id="wrapper">
+        <form id ="form-name" onSubmit={this.handleSubmit}>
+            <label htmlFor="input-name">
+              Nombre del cliente
+              </label>
+              <br></br>
+              <input type="text" onChange={this.handleChange} className="input-name"/>
+          </form>
+        </section>
+        <article id="payments">
+        </article>
+      </main>
     </section>
-    <article id="payments">
-    </article>
-  </main>
-  )
+    </>
+    )
+}
 }
 
-export default HomeRendering
+export default Home;
