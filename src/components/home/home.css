@@ -230,7 +230,7 @@ th {
 #pickles { grid-area: 4/2/5/3; }
 #aguacate { grid-area: 4/3/5/4; }
 
-#extras-grid {
+.extras {
     justify-self: center;
     align-self: center;
     justify-items: center;
@@ -244,7 +244,7 @@ th {
  #fries { grid-column: 2/3; }
  #rings { grid-column: 3/4; }
 
- #drinks-grid {
+ .drinks {
     justify-self: center;
     align-self: center;
     justify-items: center;

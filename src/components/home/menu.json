@@ -156,7 +156,50 @@
             "value": "true",
             "class": "ingredients",
             "type": "hamburger"
+        },
+        {
+            "label":"500ML",
+            "id":"water-five",
+            "value":"5",
+            "type":"drinks",
+            "class": "menu-options"
+        },
+        {
+            "label":"750ML",
+            "id":"water-seven",
+            "value":"7",
+            "type":"drinks",
+            "class": "menu-options"
+        },
+        {
+            "label":"500ML",
+            "id":"soda-five",
+            "value":"7",
+            "type":"drinks",
+            "class": "menu-options"
+        },
+        {
+            "label":"750ML",
+            "id":"soda-seven",
+            "value":"10",
+            "type":"drinks",
+            "class": "menu-options"
+        },
+        {
+            "label":"PAPAS A LA FRANCESA",
+            "id":"fries",
+            "value":"5",
+            "type":"extras",
+            "class": "menu-options"
+        },
+        {
+            "label":"ONION RINGS",
+            "id":"rings",
+            "value":"5",
+            "type":"extras",
+            "class": "menu-options"
         }
+
     ],
     "lunchOptions": [
         {
@@ -183,40 +226,6 @@
             "class": "lunch-options",
             "type": "lunch"
         }
-    ],
-    "drinks":[
-        {
-            "label":"500ML",
-            "id":"water-five",
-            "value":"5"
-        },
-        {
-            "label":"750ML",
-            "id":"water-seven",
-            "value":"7"
-        },
-        {
-            "label":"500ML",
-            "id":"soda-five",
-            "value":"7"
-        },
-        {
-            "label":"750ML",
-            "id":"soda-seven",
-            "value":"10"
-        }
-    ],
-    "extras": [
-        {
-            "label":"PAPAS A LA FRANCESA",
-            "id":"fries",
-            "value":"5"
-        },
-        {
-            "label":"ONION RINGS",
-            "id":"rings",
-            "value":"5"
-        }     
     ]
     }
 
