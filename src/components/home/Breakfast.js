@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.css';
 import {OrdersOutput, BreakfastBttns} from './Bcomponents';
+import Ticket from './Ticket'
 
 
 class Breakfast extends React.Component {
@@ -31,7 +32,7 @@ class Breakfast extends React.Component {
       <main>
         <BreakfastBttns orders= {this.state.orders} addOrder={this.addOrder}/>
           <article id="payments">
-            <OrdersOutput orders={this.state.orders} deleteOrder={this.deleteOrder}/>
+            <Ticket/>
           </article>
         </main>
         </section>

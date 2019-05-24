@@ -25,10 +25,10 @@ function Home() {
             <p>Cliente: </p>
             <p>No. Orden: </p>
           </article>
-          <button className="ready">Pedido listo</button>
+          <button className="ready">Salir</button>
           </header>
 
-        <Route exact path="/home" component={HomeRendering} />
+        <Route exact path="/home" component={HomeRendering}/>
         <Route exact path="/home/desayuno" component={Breakfast} />
         <Route exact path="/home/comida" component={Lunch} />
         <Route exact path="/home/historial-de-pedidos" component={Orders}/>

@@ -11,7 +11,7 @@ class BreakfastBttns extends React.Component{
     label:null,
     price: null,
     id: null, 
-    ingredients: null,
+    ingredients: [],
   };
 
   handleClickOptions = (e) => {

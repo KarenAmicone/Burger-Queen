@@ -75,7 +75,7 @@ function Lunch(){
           <main>
             <LunchBttns addOrder={this.addOrder} orders= {this.state.orders}/>
               <article id="payments">
-                <OrdersOutput orders={this.state.orders}/>
+                <OrdersOutput orders={this.state.orders} deleteOrder={this.deleteOrder}/>
               </article>
             </main>
             </section>

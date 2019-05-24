@@ -12,3 +12,11 @@ const LunchOptions = (props) =>
 
 //Exporting
 export {Ingredients, MenuOptions, LunchOptions}
+
+<form id ="form-name" onSubmit={this.handleSubmit}>
+                <label htmlFor="input-name">
+                  Nombre del cliente
+                  </label>
+                  <br></br>
+                  <input type="text" onChange={this.handleChange} className="input-name"/>
+              </form>

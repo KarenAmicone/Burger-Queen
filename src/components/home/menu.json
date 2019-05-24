@@ -1,127 +1,187 @@
 {
-"menu": [
-    {
-    "name": "desayuno",
-    "options":[
-            {
-                "label": "SANDWICH DE JAMÓN Y QUESO",
-                "id": "sandwich",
-                "value": 10,
-                "class": "menu-options"
-            },
-            {
-                "label": "CAFÉ AMERICANO",
-                "id": "coffe-a",
-                "value": 5,
-                "class": "menu-options"
-            },
-            {
-                "label": "CAFÉ CON LECHE",
-                "id": "coffe-l",
-                "value": 7,
-                "class": "menu-options"
-            },
-            {
-                "label": "JUGO NATURAL",
-                "id": "juice",
-                "value": 7,
-                "class": "menu-options"
-            },
-            {
-                "label": "LECHUGA",
-                "id": "lettuce",
-                "value": true,
-                "class": "ingredients"
-            },
-            {
-                "label": "ZANAHORIA",
-                "id": "carrot",
-                "value": true,
-                "class": "ingredients"
-            },
-            {
-                "label": "CEBOLLA",
-                "id": "onion",
-                "value": true,
-                "class": "ingredients"
-            },
-            {
-                "label": "CHILE",
-                "id": "chile",
-                "value": true,
-                "class": "ingredients"
-            }
-        ]
-    },
+    "bttns": [
+                {
+                    "id":"breakfast",
+                    "class": "main-bttn", 
+                    "title": "DESAYUNO"
+                },
+                {
+                    "id":"lunch",
+                    "class": "main-bttn", 
+                    "title": "COMIDA"
+                },
+                {
+                    "id":"new-order",
+                    "class": "main-bttn", 
+                    "title": "NUEVA ORDEN"
+                },
+                {
+                    "id":"orders-history",
+                    "class": "main-bttn", 
+                    "title": "HISTORIAL DE PEDIDOS"
+                }
+                ],    
 
-    {
-    "name":"comida",
+            
     "options":[
+        {
+            "label": "SANDWICH DE JAMÓN Y QUESO",
+            "id": "sandwich",
+            "value": 10,
+            "class": "menu-options",
+            "type": "breakfast"
+        },
+        {
+            "label": "CAFÉ AMERICANO",
+            "id": "coffe-a",
+            "value": 5,
+            "class": "menu-options",
+            "type": "breakfast"
+        },
+        {
+            "label": "CAFÉ CON LECHE",
+            "id": "coffe-l",
+            "value": 7,
+            "class": "menu-options",
+            "type": "breakfast"
+        },
+        {
+            "label": "JUGO NATURAL",
+            "id": "juice",
+            "value": 7,
+            "class": "menu-options",
+            "type": "breakfast"
+        },
+        {
+            "label": "LECHUGA",
+            "id": "lettuce",
+            "value": true,
+            "class": "ingredients",
+            "type": "breakfast"
+        },
+        {
+            "label": "ZANAHORIA",
+            "id": "carrot",
+            "value": true,
+            "class": "ingredients",
+            "type": "breakfast"
+        },
+        {
+            "label": "CEBOLLA",
+            "id": "onion",
+            "value": true,
+            "class": "ingredients",
+            "type": "breakfast"
+        },
+        {
+            "label": "CHILE",
+            "id": "chile",
+            "value": true,
+            "class": "ingredients",
+            "type": "breakfast"
+        },
         {
             "id":"single", 
             "label":"SENCILLA",
             "value":10,
-            "class": "menu-options"
+            "class": "menu-options",
+            "type": "hamburger"
         },
         {
             "id": "double", 
             "label": "DOBLE",
             "value": 15,
-            "class": "menu-options"
+            "class": "menu-options",
+            "type": "hamburger"
         },
         {
             "id": "meat", 
             "label": "RES",
             "value": "type",
-            "class": "menu-options"
+            "class": "menu-options",
+            "type": "hamburger"
         },  
         {
             "id": "chicken", 
             "label": "POLLO",
             "value": "type",
-            "class": "menu-options"
+            "class": "menu-options",
+            "type": "hamburger"
         }, 
         {
             "id": "veggie", 
             "label": "VEGETARIANA",
             "value": "type",
-            "class": "menu-options"
+            "class": "menu-options",
+            "type": "hamburger"
         },
         {
             "id": "lettuce-1", 
             "label": "LECHUGA",
             "value": "true",
-            "class": "ingredients"
+            "class": "ingredients",
+            "type": "hamburger"
         },
         {
             "id": "tomatoe", 
             "label": "JITOMATE",
             "value": "true",
-            "class": "ingredients"
+            "class": "ingredients",
+            "type": "hamburger"
         },
         {
             "id": "onion-1", 
             "label": "CEBOLLA",
             "value": "true",
-            "class": "ingredients"
+            "class": "ingredients",
+            "type": "hamburger"
         },
         {
             "id": "chile-1", 
             "label": "CHILE",
             "value": "true",
-            "class": "ingredients"
+            "class": "ingredients",
+            "type": "hamburger"
         },
         {
             "id": "pickles", 
             "label": "PEPINILLOS",
             "value": "true",
-            "class": "ingredients"
+            "class": "ingredients",
+            "type": "hamburger"
         },
         {
             "id": "aguacate", 
             "label": "AGUACATE",
             "value": "true",
-            "class": "ingredients"
+            "class": "ingredients",
+            "type": "hamburger"
+        }
+    ],
+    "lunchOptions": [
+        {
+            "id": "hamburger", 
+            "label": "HAMBURGUESA",
+            "class": "lunch-options",
+            "type": "lunch"
+        },
+        {
+            "id": "extras", 
+            "label": "GUARNICIÓN",
+            "class": "lunch-options",
+            "type": "lunch"
+        },
+        {
+            "id": "drinks", 
+            "label": "BEBIDAS",
+            "class": "lunch-options",
+            "type": "lunch"
+        },
+        {
+            "id": "promos", 
+            "label": "PROMOCIONES",
+            "class": "lunch-options",
+            "type": "lunch"
         }
     ],
     "drinks":[
@@ -159,5 +219,4 @@
         }     
     ]
     }
-]
-}
+

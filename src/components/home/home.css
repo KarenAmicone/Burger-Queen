@@ -94,7 +94,6 @@ table{
 td,
 th {
     border-bottom: 1px solid rgb(190, 190, 190);
-    padding: 10px;
 }
 
 #wrapper{
@@ -173,7 +172,7 @@ th {
     border-radius: 6px;
 }
 
-#breakfast-grid{
+.breakfast{
     grid-area: 1/1/4/4;
     display: grid;
     grid-template-columns: repeat(4, auto);
@@ -206,7 +205,7 @@ th {
     justify-items: center;
 }
 
-#lunch-grid{
+.hamburger{
     justify-self: center;
     align-self: center;
     justify-items: center;
