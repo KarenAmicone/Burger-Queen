@@ -34,7 +34,6 @@ const firebaseConfig = {
                     (user) =>{
                         if(user){
                             this.auth.onAuthStateChanged(resolve);
-                            console.log(user)
                         } else {
                             this.auth.onAuthStateChanged(reject);
                         }

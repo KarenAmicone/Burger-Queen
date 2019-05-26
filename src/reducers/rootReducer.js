@@ -1,4 +1,4 @@
-import menu from '../components/home/menu.json'
+import menu from '../components/menu.json'
 
 const initState = {
     bttns: menu.bttns,
@@ -6,7 +6,8 @@ const initState = {
     lunchOptions: menu.lunchOptions,
     orders: [],
     total: 0,
-    path: null
+    path: null,
+    clientName: "",
 };
 
 const rootReducer = (state = initState, action) => {
@@ -44,6 +45,22 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
           orders: newOrder
+        }
+    }else if(action.type === 'ADD_NAME'){
+        let name = action.name
+        return{
+            ...state,
+            clientName: name
+        }
+    }else if(action.type === 'RESET'){
+        return {
+            bttns: menu.bttns,
+            options: menu.options,
+            lunchOptions: menu.lunchOptions,
+            orders: [],
+            total: 0,
+            path: null,
+            clientName: ""
         }
     }
     return state;

@@ -1,15 +1,20 @@
 import React from 'react';
-import '../components/home/home.css';
-import Ticket from './home/Ticket';
+import '../../src/components/home.css'
+import Ticket from './Ticket';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import MenuSection from './MenuSection';
+import Form from './Form';
+import Orders from './Orders';
+import app from 'firebase/app';
+import 'firebase/firebase-firestore';
 
 let lunchArray;
 
 class Home extends React.Component {
   state = {
-    selected: null
+    selected: null,
+    orders:[]
   }
 
   handleLunchOption = (e) =>{
@@ -20,6 +25,7 @@ class Home extends React.Component {
   }
 
   handleClick = (e) =>{
+  console.log(this.props)
     e.preventDefault();
     this.setState({
       selected:null
@@ -54,13 +60,32 @@ class Home extends React.Component {
               )
             });
         
+        const wrapperSection = () =>{
+          if(this.props.location.pathname === "/home" || this.props.location.pathname === "/home/new-order"){
+            return <Form/>
+          } else if(this.props.location.pathname === "/home/orders-history"){
+            let orders;
+            app.firestore()
+            .collection('orders')
+            .get()
+            .then(collection => {
+            orders= collection.docs.map(doc => doc.data());})
+            .then(()=>{this.setState({
+              orders: orders
+            })})
+          return <Orders orders= {this.state.orders}/>
+          } else {
+            return <MenuSection selected = {this.state.selected}/>
+          }
+
+        }
+        
         return (
             <>
         <header>
           {bttnsMenu}
           <article id="order-info">
-            <p>Cliente: </p>
-            <p>No. Orden: </p>
+            <p>{"Cliente: " + this.props.clientName}</p>
           </article>
           <button className="ready">Salir</button>
         </header>
@@ -70,7 +95,7 @@ class Home extends React.Component {
           </article>   
           <main>
             <section id="wrapper">
-            <MenuSection selected = {this.state.selected}/>
+            {wrapperSection()}
             </section>
             <Ticket/>
           </main>
@@ -83,7 +108,8 @@ class Home extends React.Component {
 const mapStateToProps = (state) => {
     return {
       bttns: state.bttns,
-      lunchOptions: state.lunchOptions
+      lunchOptions: state.lunchOptions,
+      clientName: state.clientName
     }
   }
 

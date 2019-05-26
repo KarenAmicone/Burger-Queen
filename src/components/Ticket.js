@@ -1,6 +1,7 @@
 import React from 'react';
-import './home.css';
 import { connect } from 'react-redux';
+import app from 'firebase/app';
+import 'firebase/firebase-firestore';
 
 
 class Ticket extends React.Component{
@@ -8,9 +9,19 @@ class Ticket extends React.Component{
     this.props.deleteOrder(id, price)
   };
 
+  handleOrder = (e) =>{
+    e.preventDefault();
+    app.firestore().collection('orders').add({
+      orders: this.props.orders,
+      total: this.props.total,
+      clientName: this.props.clientName
+    }).then(this.props.reset())
+  }
+
   render (){
     return( 
-      <article id="payments">
+      <section id="payments">
+      <article id="table">
       <table>
       <tbody>
       {this.props.orders.map(order=>
@@ -26,10 +37,14 @@ class Ticket extends React.Component{
           <td>Total:</td>
           <td>{"$" + this.props.total}</td>
         </tr>
+        <tr></tr>
       </tbody>
     </table>
-    <p></p>
     </article>
+    <article className="ordering">
+    <button className= "purple-bttns" onClick={this.handleOrder}>TERMINAR PEDIDO</button>
+    </article>
+    </section>
     )
   }
     
@@ -38,13 +53,15 @@ class Ticket extends React.Component{
   const mapState = (state) => {
       return{
           orders: state.orders,
-          total: state.total
+          total: state.total,
+          clientName: state.clientName
       }
   }
 
   const mapDispatchToProps = (dispatch) =>{
     return {
-      deleteOrder: (id, price) => {dispatch({type: 'DELETE_ORDER', id: id, price: price})}
+      deleteOrder: (id, price) => {dispatch({type: 'DELETE_ORDER', id: id, price: price})},
+      reset: () => {dispatch({type: 'RESET'})}
     }
   }
 

@@ -84,37 +84,44 @@
             "type": "breakfast"
         },
         {
-            "id":"single", 
-            "label":"SENCILLA",
+            "id":"single-meat", 
+            "label":"SENCILLA RES",
             "value":10,
             "class": "menu-options",
             "type": "hamburger"
         },
         {
-            "id": "double", 
-            "label": "DOBLE",
-            "value": 15,
+            "id": "single-chicken", 
+            "label": "SENCILLA POLLO",
+            "value": 10,
             "class": "menu-options",
             "type": "hamburger"
         },
         {
-            "id": "meat", 
-            "label": "RES",
-            "value": "type",
+            "id": "single-veggie", 
+            "label": "SENCILLA VEGETARIANA",
+            "value": 10,
+            "class": "menu-options",
+            "type": "hamburger"
+        },
+        {
+            "id": "double-meat", 
+            "label": "DOBLE RES",
+            "value": 15,
             "class": "menu-options",
             "type": "hamburger"
         },  
         {
-            "id": "chicken", 
-            "label": "POLLO",
-            "value": "type",
+            "id": "double-chicken", 
+            "label": "DOBLE POLLO",
+            "value": 15,
             "class": "menu-options",
             "type": "hamburger"
         }, 
         {
-            "id": "veggie", 
-            "label": "VEGETARIANA",
-            "value": "type",
+            "id": "double-veggie", 
+            "label": "DOBLE VEGETARIANA",
+            "value": 15,
             "class": "menu-options",
             "type": "hamburger"
         },

@@ -5,7 +5,7 @@ import Home from '../Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {CircularProgress } from '@material-ui/core';
 import firebase from '../../firebase';
-import MenuSection from '../MenuSection'
+import MenuSection from '../MenuSection';
 
 
 export default function App() {
