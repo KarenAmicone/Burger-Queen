@@ -126,42 +126,6 @@
             "type": "hamburger"
         },
         {
-            "id": "lettuce-1", 
-            "label": "LECHUGA",
-            "class": "ingredients",
-            "type": "hamburger"
-        },
-        {
-            "id": "tomatoe", 
-            "label": "JITOMATE",
-            "class": "ingredients",
-            "type": "hamburger"
-        },
-        {
-            "id": "onion-1", 
-            "label": "CEBOLLA",
-            "class": "ingredients",
-            "type": "hamburger"
-        },
-        {
-            "id": "chile-1", 
-            "label": "CHILE",
-            "class": "ingredients",
-            "type": "hamburger"
-        },
-        {
-            "id": "pickles", 
-            "label": "PEPINILLOS",
-            "class": "ingredients",
-            "type": "hamburger"
-        },
-        {
-            "id": "aguacate", 
-            "label": "AGUACATE",
-            "class": "ingredients",
-            "type": "hamburger"
-        },
-        {
             "label":"AGUA 500ML",
             "id":"water-five",
             "value": 5,

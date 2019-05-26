@@ -12,11 +12,11 @@ const initState = {
 
 const rootReducer = (state = initState, action) => {
     if(action.type === 'ADD_ORDER'){
-        let newOrder = [...state.orders, action.order];
-        return {
-            ...state,
-            orders: newOrder
-        }
+        let newOrder = [...state.orders, action.order]
+            return {
+                ...state,
+                orders: newOrder
+            }
     } else if(action.type === 'DELETE_ORDER'){
         let newOrder = state.orders.filter(order=>{
             return action.id !== order.id
