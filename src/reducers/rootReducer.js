@@ -46,13 +46,13 @@ const rootReducer = (state = initState, action) => {
             ...state,
           orders: newOrder
         }
-    }else if(action.type === 'ADD_NAME'){
+    } else if(action.type === 'ADD_NAME'){
         let name = action.name
         return{
             ...state,
             clientName: name
         }
-    }else if(action.type === 'RESET'){
+    } else if(action.type === 'RESET'){
         return {
             bttns: menu.bttns,
             options: menu.options,

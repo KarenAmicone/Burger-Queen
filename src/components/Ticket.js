@@ -17,7 +17,7 @@ class Ticket extends React.Component{
       clientName: this.props.clientName
     }).then(this.props.reset())
   }
-
+  
   render (){
     return( 
       <section id="payments">
@@ -29,6 +29,7 @@ class Ticket extends React.Component{
         <td>{order.name}</td>
         <td>{"$" + order.price}</td>
         <td>{order.ingredients}</td>
+        <td>{order.quant}</td>
         <td> <button onClick = {()=> {this.handleDelete(order.id, order.price)}}><i className="material-icons">delete_outline</i></button> </td>
         </tr>
         )}
@@ -61,7 +62,8 @@ class Ticket extends React.Component{
   const mapDispatchToProps = (dispatch) =>{
     return {
       deleteOrder: (id, price) => {dispatch({type: 'DELETE_ORDER', id: id, price: price})},
-      reset: () => {dispatch({type: 'RESET'})}
+      reset: () => {dispatch({type: 'RESET'})},
+      addItems: () => {}
     }
   }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../src/components/home.css'
+import '../components/home/home.css'
 import Ticket from './Ticket';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';

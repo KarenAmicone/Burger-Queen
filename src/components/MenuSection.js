@@ -17,7 +17,8 @@ class MenuSection extends React.Component {
           price: e.target.value,
           id: e.target.id,
           class : e.target.className,
-          ingredients: []
+          ingredients: [],
+          quant: 1
         }
       );
       this.props.count();
