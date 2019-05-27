@@ -28,8 +28,17 @@ const firebaseConfig = {
         };
 
         isInitialized() {
-            return new Promise(resolve => {
-                this.auth.onAuthStateChanged(resolve);
+            return new Promise(
+                (resolve, reject) => {
+                this.auth.onAuthStateChanged(
+                    (user) =>{
+                        if(user){
+                            this.auth.onAuthStateChanged(resolve);
+                        } else {
+                            this.auth.onAuthStateChanged(reject);
+                        }
+                    }
+                )
             })
         }
   };

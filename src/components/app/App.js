@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import './App.css';
-import LoginForm from '../login/login'
-import Home from '../home/home'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import {CircularProgress } from '@material-ui/core'
-import firebase from '../../firebase'
+import LoginForm from '../login/login';
+import Home from '../Home';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import {CircularProgress } from '@material-ui/core';
+import firebase from '../../firebase';
+import MenuSection from '../MenuSection';
 
 
 export default function App() {
@@ -19,10 +20,12 @@ export default function App() {
 	return firebaseInitialized !== false ? (
 			<Router>
 				<Switch>
-					<Route exact path="/" component={LoginForm} />
-					<Route exact path="/home" component={Home} />
+					<Route exact path='/' component = {LoginForm} />
+					<Route path='/home' component = {Home} />
+					<Route path='/home/:bttn_id' component={MenuSection}/>
+					<Route path='/home/lunch/:bttn_id' component={MenuSection}/>
 				</Switch>
 			</Router>
 
-	) : <div id="loader"><CircularProgress /></div>
+	) : <div id="loader"><CircularProgress/></div>
 }

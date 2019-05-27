@@ -1,0 +1,199 @@
+{
+    "bttns": [
+                {
+                    "id":"breakfast",
+                    "class": "main-bttn", 
+                    "title": "DESAYUNO"
+                },
+                {
+                    "id":"lunch",
+                    "class": "main-bttn", 
+                    "title": "COMIDA"
+                },
+                {
+                    "id":"new-order",
+                    "class": "main-bttn", 
+                    "title": "NUEVA ORDEN"
+                },
+                {
+                    "id":"orders-history",
+                    "class": "main-bttn", 
+                    "title": "HISTORIAL DE PEDIDOS"
+                }
+                ],    
+
+            
+    "options":[
+        {
+            "label": "SANDWICH DE JAMÓN Y QUESO",
+            "id": "sandwich",
+            "value": 10,
+            "class": "menu-options",
+            "type": "breakfast",
+            "quantity": 1,
+            "ingredients": []
+        },
+        {
+            "label": "CAFÉ AMERICANO",
+            "id": "coffe-a",
+            "value": 5,
+            "class": "menu-options",
+            "type": "breakfast",
+            "quantity": 1
+        },
+        {
+            "label": "CAFÉ CON LECHE",
+            "id": "coffe-l",
+            "value": 7,
+            "class": "menu-options",
+            "type": "breakfast",
+            "quantity": 1
+        },
+        {
+            "label": "JUGO NATURAL",
+            "id": "juice",
+            "value": 7,
+            "class": "menu-options",
+            "type": "breakfast",
+            "quantity": 1
+        },
+        {
+            "label": "LECHUGA",
+            "id": "lettuce",
+            "class": "ingredients",
+            "type": "breakfast",
+            "quantity": 1
+        },
+        {
+            "label": "ZANAHORIA",
+            "id": "carrot",
+            "class": "ingredients",
+            "type": "breakfast",
+            "quantity": 1
+        },
+        {
+            "label": "CEBOLLA",
+            "id": "onion",
+            "class": "ingredients",
+            "type": "breakfast"
+        },
+        {
+            "label": "CHILE",
+            "id": "chile",
+            "class": "ingredients",
+            "type": "breakfast"
+        },
+        {
+            "id":"single-meat", 
+            "label":"SENCILLA RES",
+            "value":10,
+            "class": "menu-options",
+            "type": "hamburger"
+        },
+        {
+            "id": "single-chicken", 
+            "label": "SENCILLA POLLO",
+            "value": 10,
+            "class": "menu-options",
+            "type": "hamburger"
+        },
+        {
+            "id": "single-veggie", 
+            "label": "SENCILLA VEGETARIANA",
+            "value": 10,
+            "class": "menu-options",
+            "type": "hamburger"
+        },
+        {
+            "id": "double-meat", 
+            "label": "DOBLE RES",
+            "value": 15,
+            "class": "menu-options",
+            "type": "hamburger"
+        },  
+        {
+            "id": "double-chicken", 
+            "label": "DOBLE POLLO",
+            "value": 15,
+            "class": "menu-options",
+            "type": "hamburger"
+        }, 
+        {
+            "id": "double-veggie", 
+            "label": "DOBLE VEGETARIANA",
+            "value": 15,
+            "class": "menu-options",
+            "type": "hamburger"
+        },
+        {
+            "label":"AGUA 500ML",
+            "id":"water-five",
+            "value": 5,
+            "type":"drinks",
+            "class": "menu-options"
+        },
+        {
+            "label":"AGUA 750ML",
+            "id":"water-seven",
+            "value": 7,
+            "type":"drinks",
+            "class": "menu-options"
+        },
+        {
+            "label":"SODA 500ML",
+            "id":"soda-five",
+            "value": 7,
+            "type":"drinks",
+            "class": "menu-options"
+        },
+        {
+            "label":"SODA 750ML",
+            "id":"soda-seven",
+            "value": 10,
+            "type":"drinks",
+            "class": "menu-options"
+        },
+        {
+            "label":"PAPAS A LA FRANCESA",
+            "id":"fries",
+            "value": 5,
+            "type":"extras",
+            "class": "menu-options"
+        },
+        {
+            "label":"ONION RINGS",
+            "id":"rings",
+            "value": 5,
+            "type":"extras",
+            "class": "menu-options"
+        }
+
+    ],
+    "lunchOptions": [
+        {
+            "id": "hamburger", 
+            "label": "HAMBURGUESA",
+            "class": "lunch-options",
+            "type": "lunch"
+        },
+        {
+            "id": "extras", 
+            "label": "GUARNICIÓN",
+            "class": "lunch-options",
+            "type": "lunch"
+        },
+        {
+            "id": "drinks", 
+            "label": "BEBIDAS",
+            "class": "lunch-options",
+            "type": "lunch"
+        },
+        {
+            "id": "promos", 
+            "label": "PROMOCIONES",
+            "class": "lunch-options",
+            "type": "lunch"
+        }
+    ]
+    }
+
