@@ -30,8 +30,7 @@ const firebaseConfig = {
         isInitialized() {
             return new Promise(
                 (resolve) => {
-                this.auth.onAuthStateChanged(resolve);
-                        
+                this.auth.onAuthStateChanged(resolve);   
                     }
                 )
             }

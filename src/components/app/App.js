@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
 import LoginForm from '../login/login';
 import Home from '../Home';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
