@@ -29,18 +29,12 @@ const firebaseConfig = {
 
         isInitialized() {
             return new Promise(
-                (resolve, reject) => {
-                this.auth.onAuthStateChanged(
-                    (user) =>{
-                        if(user){
-                            this.auth.onAuthStateChanged(resolve);
-                        } else {
-                            this.auth.onAuthStateChanged(reject);
-                        }
+                (resolve) => {
+                this.auth.onAuthStateChanged(resolve);   
                     }
                 )
-            })
+            }
         }
-  };
+
 
   export default new Firebase();
