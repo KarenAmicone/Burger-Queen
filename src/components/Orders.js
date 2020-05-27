@@ -1,17 +1,19 @@
 import React from "react";
 
 const PrintOrders = ({ orders }) => {
+  let ordersArr = orders.map((doc) => doc.data());
   return (
     <section className="history">
-      {orders.map(element => {
+      {ordersArr.map((element) => {
         return (
-          <article>
+          <div key={Math.random()}>
             <p>{`Cliente: ${element.clientName}`}</p>
+            <p>{`Fecha: ${element.createdAt.toDate()}`}</p>
             <table>
               <tbody>
-                {element.orders.map(product => {
+                {element.orders.map((product) => {
                   return (
-                    <tr key={product.id}>
+                    <tr>
                       <td>{product.name}</td>
                       <td>{`$ ${product.price}`}</td>
                     </tr>
@@ -21,7 +23,7 @@ const PrintOrders = ({ orders }) => {
             </table>
             <p>{`Total: $ ${element.total}`}</p>
             <hr></hr>
-          </article>
+          </div>
         );
       })}
     </section>
