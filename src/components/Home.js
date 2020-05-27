@@ -14,24 +14,37 @@ let lunchArray;
 class Home extends React.Component {
   state = {
     selected: null,
-    orders: []
+    orders: [],
   };
 
-  handleLunchOption = e => {
+  handleLunchOption = (e) => {
     e.preventDefault();
     this.setState({
-      selected: e.target.id
+      selected: e.target.id,
     });
   };
 
-  handleClick = e => {
-    console.log(this.props);
+  firestoreSnapshot = () => {
+    app
+      .firestore()
+      .collection("orders")
+      .orderBy("createdAt", "desc")
+      .get()
+      .then((collection) => {
+        let orders = collection.docs;
+        this.setState({
+          orders: orders,
+        });
+      });
+  };
+
+  handleClick = (e) => {
     e.preventDefault();
     this.setState({
-      selected: null
+      selected: null,
     });
     if (e.target.id === "lunch") {
-      lunchArray = this.props.lunchOptions.map(bttn => {
+      lunchArray = this.props.lunchOptions.map((bttn) => {
         return (
           <button
             onClick={this.handleLunchOption}
@@ -44,16 +57,21 @@ class Home extends React.Component {
           </button>
         );
       });
+    } else if (e.target.id === "orders-history") {
+      this.firestoreSnapshot();
+      this.setState({
+        selected: e.target.id,
+      });
     } else {
       this.setState({
-        selected: e.target.id
+        selected: e.target.id,
       });
     }
   };
 
   render() {
     const { bttns } = this.props;
-    const bttnsMenu = bttns.map(bttn => {
+    const bttnsMenu = bttns.map((bttn) => {
       return (
         <button onClick={this.handleClick} className={bttn.class} key={bttn.id}>
           <Link id={bttn.id} className="link" to={"/home/" + bttn.id}>
@@ -70,19 +88,6 @@ class Home extends React.Component {
       ) {
         return <Form />;
       } else if (this.props.location.pathname === "/home/orders-history") {
-        let orders;
-        app
-          .firestore()
-          .collection("orders")
-          .get()
-          .then(collection => {
-            orders = collection.docs.map(doc => doc.data());
-          })
-          .then(() => {
-            this.setState({
-              orders: orders
-            });
-          });
         return <Orders orders={this.state.orders} />;
       } else {
         return <MenuSection selected={this.state.selected} />;
@@ -93,12 +98,12 @@ class Home extends React.Component {
       <>
         <header>
           {bttnsMenu}
-          <article id="order-info">
+          <div id="order-info">
             <p>{"Cliente: " + this.props.clientName}</p>
-          </article>
+          </div>
           <button className="ready">Salir</button>
         </header>
-        <section>
+        <section className="main-container">
           <article id="lunch-menu">{lunchArray}</article>
           <main>
             <section id="wrapper">{wrapperSection()}</section>
@@ -110,11 +115,11 @@ class Home extends React.Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     bttns: state.bttns,
     lunchOptions: state.lunchOptions,
-    clientName: state.clientName
+    clientName: state.clientName,
   };
 };
 
