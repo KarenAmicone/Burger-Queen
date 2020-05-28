@@ -11,11 +11,13 @@ class Ticket extends React.Component {
   handleAddItem = (id, quant) => {
     let newQuant = quant + 1;
     this.props.updateQuant(id, newQuant);
+    this.props.count();
   };
 
   handleSubstractItem = (id, quant) => {
     let newQuant = quant - 1;
     this.props.updateQuant(id, newQuant);
+    this.props.count();
   };
 
   handleOrder = (e) => {
@@ -107,6 +109,9 @@ const mapDispatchToProps = (dispatch) => {
     addItems: () => {},
     updateQuant: (id, quant) => {
       dispatch({ type: "UPDATE_QUANTITY", id: id, quant: quant });
+    },
+    count: () => {
+      dispatch({ type: "COUNT" });
     },
   };
 };
