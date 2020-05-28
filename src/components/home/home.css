@@ -333,11 +333,6 @@ th {
   grid-area: 2/2/3/3;
 }
 
-.history {
-  height: 95%;
-  overflow: scroll;
-}
-
 .order-item-container {
   width: 100%;
   height: 85px;
@@ -401,4 +396,25 @@ th {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.history {
+  height: 95%;
+  overflow: scroll;
+}
+
+.title-ticket-history {
+  color: #000000;
+}
+
+.center-aligned {
+  text-align: center;
+}
+
+.history-table {
+  width: 90%;
+}
+
+.history-product {
+  width: 60%;
 }

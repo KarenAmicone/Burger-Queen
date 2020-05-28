@@ -5,17 +5,26 @@ const PrintOrders = ({ orders }) => {
   return (
     <section className="history">
       {ordersArr.map((element) => {
+        let dateObject = element.createdAt.toDate();
+        let date = dateObject.toLocaleDateString();
+
         return (
           <div key={Math.random()}>
-            <p>{`Cliente: ${element.clientName}`}</p>
-            <p>{`Fecha: ${element.createdAt.toDate()}`}</p>
-            <table>
+            <h3 className="title-ticket-history">{`Cliente: ${element.clientName}`}</h3>
+            <h3 className="title-ticket-history">{`Fecha: ${date}`}</h3>
+            <table className="history-table">
               <tbody>
+                <tr key={Math.random()}>
+                  <td className="history-product">Producto</td>
+                  <td className="center-aligned">Cantidad</td>
+                  <td className="center-aligned">Precio</td>
+                </tr>
                 {element.orders.map((product) => {
                   return (
-                    <tr>
-                      <td>{product.name}</td>
-                      <td>{`$ ${product.price}`}</td>
+                    <tr key={Math.random()}>
+                      <td className="history-product">{product.name}</td>
+                      <td className="center-aligned">{product.quant}</td>
+                      <td className="center-aligned">{`$ ${product.price}`}</td>
                     </tr>
                   );
                 })}
