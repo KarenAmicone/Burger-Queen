@@ -9,7 +9,7 @@ const firebaseConfig = {
   projectId: "burger-queen-3c206",
   storageBucket: "burger-queen-3c206.appspot.com",
   messagingSenderId: "113645595393",
-  appId: "1:113645595393:web:8b3c1846dac80302"
+  appId: "1:113645595393:web:8b3c1846dac80302",
 };
 
 class Firebase {
@@ -28,7 +28,7 @@ class Firebase {
   }
 
   isInitialized() {
-    return new Promise(resolve => {
+    return new Promise((resolve) => {
       this.auth.onAuthStateChanged(resolve);
     });
   }
