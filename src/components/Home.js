@@ -1,13 +1,18 @@
 import React from "react";
-import "../components/home/home.css";
-import Ticket from "./Ticket";
+
+import app from "firebase/app";
+import "firebase/firebase-firestore";
+
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
+import "../components/home/home.css";
+
+import Ticket from "./Ticket";
 import MenuSection from "./MenuSection";
 import Form from "./Form";
 import Orders from "./Orders";
-import app from "firebase/app";
-import "firebase/firebase-firestore";
+import LogoutButton from "./logout_button";
 
 let lunchArray;
 
@@ -101,7 +106,7 @@ class Home extends React.Component {
           <div id="order-info">
             <p>{"Cliente: " + this.props.clientName}</p>
           </div>
-          <button className="ready">Salir</button>
+          <LogoutButton />
         </header>
         <section className="main-container">
           <article id="lunch-menu">{lunchArray}</article>
