@@ -63,11 +63,13 @@ class Home extends React.Component {
         );
       });
     } else if (e.target.id === "orders-history") {
+      lunchArray = [];
       this.firestoreSnapshot();
       this.setState({
         selected: e.target.id,
       });
     } else {
+      lunchArray = [];
       this.setState({
         selected: e.target.id,
       });

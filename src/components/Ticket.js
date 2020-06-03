@@ -4,8 +4,8 @@ import app from "firebase/app";
 import "firebase/firebase-firestore";
 
 class Ticket extends React.Component {
-  handleDelete = (id, price) => {
-    this.props.deleteOrder(id, price);
+  handleDelete = (id, price, quant) => {
+    this.props.deleteOrder(id, price, quant);
   };
 
   handleAddItem = (id, quant) => {
@@ -14,10 +14,15 @@ class Ticket extends React.Component {
     this.props.count();
   };
 
-  handleSubstractItem = (id, quant) => {
+  handleSubstractItem = (id, quant, price) => {
     let newQuant = quant - 1;
-    this.props.updateQuant(id, newQuant);
-    this.props.count();
+    if (newQuant >= 1) {
+      this.props.updateQuant(id, newQuant);
+      this.props.count();
+    } else {
+      this.props.updateQuant(id, newQuant);
+      this.props.deleteOrder(id, price, quant);
+    }
   };
 
   handleOrder = (e) => {
@@ -32,6 +37,11 @@ class Ticket extends React.Component {
         createdAt: app.firestore.Timestamp.fromDate(new Date()),
       })
       .then(this.props.reset());
+  };
+
+  cancelOrder = (e) => {
+    e.preventDefault();
+    this.props.reset();
   };
 
   render() {
@@ -50,7 +60,11 @@ class Ticket extends React.Component {
               <div className="counter-buttons-container">
                 <button
                   onClick={() => {
-                    this.handleSubstractItem(order.id, order.quant);
+                    this.handleSubstractItem(
+                      order.id,
+                      order.quant,
+                      order.price
+                    );
                   }}
                 >
                   -
@@ -66,7 +80,7 @@ class Ticket extends React.Component {
               <div className="order-item-delete-bttn ticket-element">
                 <button
                   onClick={() => {
-                    this.handleDelete(order.id, order.price);
+                    this.handleDelete(order.id, order.price, order.quant);
                   }}
                 >
                   <i className="material-icons">delete_outline</i>
@@ -76,13 +90,19 @@ class Ticket extends React.Component {
             </div>
           ))}
           <div key="total" className="total">
-            <p>Total:</p>
-            <p>{`$ ${this.props.total}`}</p>
+            {this.props.total === 0 ? (
+              <p></p>
+            ) : (
+              <p>{`Total: $ ${this.props.total}`}</p>
+            )}
           </div>
         </article>
         <article className="ordering">
           <button className="purple-bttns" onClick={this.handleOrder}>
-            TERMINAR PEDIDO
+            ORDENAR
+          </button>
+          <button className="purple-bttns" onClick={this.cancelOrder}>
+            CANCELAR
           </button>
         </article>
       </section>
@@ -100,8 +120,8 @@ const mapState = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteOrder: (id, price) => {
-      dispatch({ type: "DELETE_ORDER", id: id, price: price });
+    deleteOrder: (id, price, quant) => {
+      dispatch({ type: "DELETE_ORDER", id: id, price: price, quant: quant });
     },
     reset: () => {
       dispatch({ type: "RESET" });
