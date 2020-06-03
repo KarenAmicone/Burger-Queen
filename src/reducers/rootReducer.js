@@ -22,7 +22,7 @@ const rootReducer = (state = initState, action) => {
       return action.id !== order.id;
     });
 
-    let sum = state.total - action.price;
+    let sum = state.total - action.price * action.quant;
     return {
       ...state,
       orders: newOrder,
