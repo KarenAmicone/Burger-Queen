@@ -30,9 +30,10 @@ const rootReducer = (state = initState, action) => {
     };
   } else if (action.type === "COUNT") {
     let individualAccount = state.orders.map((order) => {
-      return parseInt(order.price * order.quant);
+      return parseInt(order.value * order.quantity);
     });
     let totalAccount = individualAccount.reduce((total, num) => {
+      console.log(total + num);
       return total + num;
     });
 
@@ -56,7 +57,7 @@ const rootReducer = (state = initState, action) => {
     return {
       ...state,
       orders: state.orders.map((order) =>
-        order.id === action.id ? { ...order, quant: action.quant } : order
+        order.id === action.id ? { ...order, quantity: action.quant } : order
       ),
     };
   } else if (action.type === "RESET") {
