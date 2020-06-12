@@ -50,20 +50,20 @@ class Ticket extends React.Component {
         <article id="table">
           {this.props.orders.map((order) => (
             <div key={order.id} className="order-item-container">
-              <p className="order-item-name ticket-element">{order.name}</p>
+              <p className="order-item-name ticket-element">{order.label}</p>
               <p className="order-item-price ticket-element">
-                {`$ ${order.price}`}
+                {`$ ${order.value}`}
               </p>
               <p className="order-item-quantity ticket-element">
-                {order.quant}
+                {order.quantity}
               </p>
               <div className="counter-buttons-container">
                 <button
                   onClick={() => {
                     this.handleSubstractItem(
                       order.id,
-                      order.quant,
-                      order.price
+                      order.quantity,
+                      order.value
                     );
                   }}
                 >
@@ -71,7 +71,7 @@ class Ticket extends React.Component {
                 </button>
                 <button
                   onClick={() => {
-                    this.handleAddItem(order.id, order.quant);
+                    this.handleAddItem(order.id, order.quantity);
                   }}
                 >
                   +
@@ -80,7 +80,7 @@ class Ticket extends React.Component {
               <div className="order-item-delete-bttn ticket-element">
                 <button
                   onClick={() => {
-                    this.handleDelete(order.id, order.price, order.quant);
+                    this.handleDelete(order.id, order.value, order.quantity);
                   }}
                 >
                   <i className="material-icons">delete_outline</i>
