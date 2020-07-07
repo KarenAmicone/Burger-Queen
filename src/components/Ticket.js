@@ -4,24 +4,26 @@ import app from "firebase/app";
 import "firebase/firebase-firestore";
 
 class Ticket extends React.Component {
-  handleDelete = (id, price, quant) => {
-    this.props.deleteOrder(id, price, quant);
+  handleDelete = (id) => {
+    this.props.deleteOrder(id);
+    this.props.count();
   };
 
-  handleAddItem = (id, quant) => {
+  handleAddItem = (id, quant, price) => {
     let newQuant = quant + 1;
-    this.props.updateQuant(id, newQuant);
+    this.props.updateQuant(id, newQuant, price);
     this.props.count();
   };
 
   handleSubstractItem = (id, quant, price) => {
     let newQuant = quant - 1;
+    this.props.updateQuant(id, newQuant, price);
+    this.props.count();
     if (newQuant >= 1) {
-      this.props.updateQuant(id, newQuant);
+      this.props.updateQuant(id, newQuant, price);
       this.props.count();
     } else {
-      this.props.updateQuant(id, newQuant);
-      this.props.deleteOrder(id, price, quant);
+      this.props.deleteOrder(id);
     }
   };
 
@@ -71,7 +73,7 @@ class Ticket extends React.Component {
                 </button>
                 <button
                   onClick={() => {
-                    this.handleAddItem(order.id, order.quantity);
+                    this.handleAddItem(order.id, order.quantity, order.value);
                   }}
                 >
                   +
@@ -80,13 +82,12 @@ class Ticket extends React.Component {
               <div className="order-item-delete-bttn ticket-element">
                 <button
                   onClick={() => {
-                    this.handleDelete(order.id, order.value, order.quantity);
+                    this.handleDelete(order.id);
                   }}
                 >
                   <i className="material-icons">delete_outline</i>
                 </button>
               </div>
-              <p className="order-item-specifications ticket-element">{`DETALLES: ${order.ingredients}`}</p>
             </div>
           ))}
           <div key="total" className="total">
@@ -120,15 +121,14 @@ const mapState = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteOrder: (id, price, quant) => {
-      dispatch({ type: "DELETE_ORDER", id: id, price: price, quant: quant });
+    deleteOrder: (id) => {
+      dispatch({ type: "DELETE_ORDER", id: id });
     },
     reset: () => {
       dispatch({ type: "RESET" });
     },
-    addItems: () => {},
-    updateQuant: (id, quant) => {
-      dispatch({ type: "UPDATE_QUANTITY", id: id, quant: quant });
+    updateQuant: (id, quant, price) => {
+      dispatch({ type: "UPDATE_QUANTITY", id: id, quant: quant, price: price });
     },
     count: () => {
       dispatch({ type: "COUNT" });

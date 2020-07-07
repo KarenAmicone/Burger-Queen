@@ -6,10 +6,14 @@ class MenuSection extends React.Component {
     let optionSelected = this.props.options.filter(
       (option) => option.id === e.target.id
     );
-
-    this.props.addOrder(optionSelected[0]);
-
-    this.props.count();
+    if (this.props.orders.includes(optionSelected[0])) {
+      alert(
+        "Este producto ya fue agregado. Para aumentar o disminuir la cantidad del mismo, usa los botones de más y menos. Que tengas un buen día :)"
+      );
+    } else {
+      this.props.addOrder(optionSelected[0]);
+      this.props.count();
+    }
   };
 
   render() {
@@ -49,8 +53,8 @@ const mapDispatchToProps = (dispatch) => {
     count: () => {
       dispatch({ type: "COUNT" });
     },
-    editIngredients: (sandwich) => {
-      dispatch({ type: "EDIT_INGREDIENT", sandwich: sandwich });
+    updateQuant: (id, quant, price) => {
+      dispatch({ type: "UPDATE_QUANTITY", id: id, quant: quant, price: price });
     },
   };
 };

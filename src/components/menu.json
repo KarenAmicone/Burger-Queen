@@ -29,7 +29,7 @@
       "class": "menu-options",
       "type": "breakfast",
       "quantity": 1,
-      "ingredients": []
+      "total": 10
     },
     {
       "label": "CAFÉ AMERICANO",
@@ -37,7 +37,8 @@
       "value": 5,
       "class": "menu-options",
       "type": "breakfast",
-      "quantity": 1
+      "quantity": 1,
+      "total": 5
     },
     {
       "label": "CAFÉ CON LECHE",
@@ -45,7 +46,8 @@
       "value": 7,
       "class": "menu-options",
       "type": "breakfast",
-      "quantity": 1
+      "quantity": 1,
+      "total": 7
     },
     {
       "label": "JUGO NATURAL",
@@ -53,117 +55,116 @@
       "value": 7,
       "class": "menu-options",
       "type": "breakfast",
-      "quantity": 1
-    },
-    {
-      "label": "LECHUGA",
-      "id": "lettuce",
-      "class": "ingredients",
-      "type": "breakfast",
-      "quantity": 1
-    },
-    {
-      "label": "ZANAHORIA",
-      "id": "carrot",
-      "class": "ingredients",
-      "type": "breakfast",
-      "quantity": 1
-    },
-    {
-      "label": "CEBOLLA",
-      "id": "onion",
-      "class": "ingredients",
-      "type": "breakfast"
-    },
-    {
-      "label": "CHILE",
-      "id": "chile",
-      "class": "ingredients",
-      "type": "breakfast"
+      "quantity": 1,
+      "total": 7
     },
     {
       "id": "single-meat",
       "label": "SENCILLA RES",
       "value": 10,
       "class": "menu-options",
-      "type": "hamburger"
+      "type": "hamburger",
+      "quantity": 1,
+      "total": 10
     },
     {
       "id": "single-chicken",
       "label": "SENCILLA POLLO",
       "value": 10,
       "class": "menu-options",
-      "type": "hamburger"
+      "type": "hamburger",
+      "quantity": 1,
+      "total": 10
     },
     {
       "id": "single-veggie",
       "label": "SENCILLA VEGETARIANA",
       "value": 10,
       "class": "menu-options",
-      "type": "hamburger"
+      "type": "hamburger",
+      "quantity": 1,
+      "total": 10
     },
     {
       "id": "double-meat",
       "label": "DOBLE RES",
       "value": 15,
       "class": "menu-options",
-      "type": "hamburger"
+      "type": "hamburger",
+      "quantity": 1,
+      "total": 15
     },
     {
       "id": "double-chicken",
       "label": "DOBLE POLLO",
       "value": 15,
       "class": "menu-options",
-      "type": "hamburger"
+      "type": "hamburger",
+      "quantity": 1,
+      "total": 15
     },
     {
       "id": "double-veggie",
       "label": "DOBLE VEGETARIANA",
       "value": 15,
       "class": "menu-options",
-      "type": "hamburger"
+      "type": "hamburger",
+      "quantity": 1,
+      "total": 15
     },
     {
       "label": "AGUA 500ML",
       "id": "water-five",
       "value": 5,
       "type": "drinks",
-      "class": "menu-options"
+      "class": "menu-options",
+      "quantity": 1,
+      "total": 5
     },
     {
       "label": "AGUA 750ML",
       "id": "water-seven",
       "value": 7,
       "type": "drinks",
-      "class": "menu-options"
+      "class": "menu-options",
+      "quantity": 1,
+      "total": 7
     },
     {
       "label": "SODA 500ML",
       "id": "soda-five",
       "value": 7,
       "type": "drinks",
-      "class": "menu-options"
+      "class": "menu-options",
+      "quantity": 1,
+      "total": 7
     },
     {
       "label": "SODA 750ML",
       "id": "soda-seven",
       "value": 10,
       "type": "drinks",
-      "class": "menu-options"
+      "class": "menu-options",
+      "quantity": 1,
+      "total": 10
     },
     {
       "label": "PAPAS A LA FRANCESA",
       "id": "fries",
       "value": 5,
       "type": "extras",
-      "class": "menu-options"
+      "class": "menu-options",
+      "quantity": 1,
+      "total": 5
     },
     {
       "label": "ONION RINGS",
       "id": "rings",
       "value": 5,
       "type": "extras",
-      "class": "menu-options"
+      "class": "menu-options",
+      "quantity": 1,
+      "total": 5
     }
 
   ],
