@@ -2,6 +2,7 @@ import React from "react";
 
 const PrintOrders = ({ orders }) => {
   let ordersArr = orders.map((doc) => doc.data());
+
   return (
     <section className="history">
       {ordersArr.map((element) => {
@@ -18,13 +19,16 @@ const PrintOrders = ({ orders }) => {
                   <td className="history-product">Producto</td>
                   <td className="center-aligned">Cantidad</td>
                   <td className="center-aligned">Precio</td>
+                  <td className="center-aligned">Subtotal</td>
                 </tr>
                 {element.orders.map((product) => {
+                  console.log(product);
                   return (
                     <tr key={Math.random()}>
-                      <td className="history-product">{product.name}</td>
-                      <td className="center-aligned">{product.quant}</td>
-                      <td className="center-aligned">{`$ ${product.price}`}</td>
+                      <td className="history-product">{product.label}</td>
+                      <td className="center-aligned">{product.quantity}</td>
+                      <td className="center-aligned">{`$ ${product.value}`}</td>
+                      <td className="center-aligned">{`$ ${product.total}`}</td>
                     </tr>
                   );
                 })}

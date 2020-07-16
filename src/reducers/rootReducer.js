@@ -22,30 +22,26 @@ const rootReducer = (state = initState, action) => {
       return action.id !== order.id;
     });
 
-    let sum = state.total - action.price * action.quant;
     return {
       ...state,
       orders: newOrder,
-      total: sum,
     };
   } else if (action.type === "COUNT") {
     let individualAccount = state.orders.map((order) => {
-      return parseInt(order.value * order.quantity);
+      console.log(order.total);
+      return parseInt(order.total);
     });
-    let totalAccount = individualAccount.reduce((total, num) => {
-      console.log(total + num);
-      return total + num;
-    });
+
+    let totalAccount =
+      individualAccount.length === 0
+        ? 0
+        : individualAccount.reduce((total, num) => {
+            return total + num;
+          });
 
     return {
       ...state,
       total: totalAccount,
-    };
-  } else if (action.type === "EDIT_INGREDIENT") {
-    let newOrder = [...state.orders];
-    return {
-      ...state,
-      orders: newOrder,
     };
   } else if (action.type === "ADD_NAME") {
     let name = action.name;
@@ -54,10 +50,13 @@ const rootReducer = (state = initState, action) => {
       clientName: name,
     };
   } else if (action.type === "UPDATE_QUANTITY") {
+    let newTotal = action.quant * action.price;
     return {
       ...state,
       orders: state.orders.map((order) =>
-        order.id === action.id ? { ...order, quantity: action.quant } : order
+        order.id === action.id
+          ? { ...order, quantity: action.quant, total: newTotal }
+          : order
       ),
     };
   } else if (action.type === "RESET") {

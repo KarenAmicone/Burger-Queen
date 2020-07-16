@@ -1,21 +1,26 @@
-.container{
-    height: 100vh;
-    width: 100vw;
-    display: grid;
-    grid-template-columns: 20% 60% 20%;
-    grid-template-rows: 20% 40% 30% 10%;
-    justify-items: center;
-    align-items: center;
+.container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-img{
-    width: 331px;
-    height: 340px;
-    grid-column: 2/3;
-    grid-row: 2/3;
+img {
+  width: 331px;
+  height: 340px;
 }
 
-.formLogin{
-    grid-column: 2/3;
-    grid-row: 3/4;
+h2 {
+  font-size: 1.2em;
+}
+
+.container p:nth-child(3) {
+  margin: 0;
+}
+
+.container > p {
+  color: gray;
+  font-size: 0.9em;
 }
