@@ -12,7 +12,10 @@ function LoginForm(props) {
   return (
     <main className="container">
       <img alt="" src={logo}></img>
-      <form className="formLogin" onSubmit={e => e.preventDefault() && false}>
+      <h2>Para ingresar usa este usuario</h2>
+      <p>Correo: user_example@hotmail.com</p>
+      <p>Contraseña: 1234example</p>
+      <form className="formLogin" onSubmit={(e) => e.preventDefault() && false}>
         <FormControl margin="normal" required fullWidth>
           <InputLabel htmlFor="email">Usuario</InputLabel>
           <Input
@@ -21,7 +24,7 @@ function LoginForm(props) {
             autoComplete="off"
             autoFocus
             value={email}
-            onChange={e => setEmail(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
           />
         </FormControl>
         <FormControl margin="normal" required fullWidth>
@@ -32,7 +35,7 @@ function LoginForm(props) {
             id="password"
             autoComplete="off"
             value={password}
-            onChange={e => setPassword(e.target.value)}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </FormControl>
         <Button type="submit" fullWidth onClick={login}>
